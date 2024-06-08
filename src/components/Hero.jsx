@@ -1,16 +1,33 @@
 import { TbHealthRecognition } from "react-icons/tb";
 import HeroBG from "../assets/herobg.svg";
+import { useEffect, useState } from "react";
 
 export const Hero = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
   const heroBg = {
     backgroundImage: `url(${HeroBG})`,
     backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <>
       <div
-        style={heroBg}
+        style={windowWidth < 768 ? null : heroBg}
         className="w-full min-h-screen flex flex-col justify-center items-center text-center px-4 py-4"
       >
         <TbHealthRecognition className="text-pink-700 text-5xl md:text-7xl drop-shadow-sm" />
@@ -23,7 +40,6 @@ export const Hero = () => {
         <button className="w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4 rounded-md py-3 my-2 px-2 uppercase bg-pink-700 shadow-md text-white font-medium hover:shadow-lg hover:bg-pink-600 focus:shadow-lg focus:bg-pink-600 active:scale-95 active:bg-pink-800 duration-300">
           learn more
         </button>
-        <div></div>
       </div>
     </>
   );
