@@ -1,5 +1,5 @@
 import { TbHealthRecognition } from "react-icons/tb";
-import HeroBG from "../assets/herobg.svg";
+import HeroBG from "/herobg.svg";
 
 export const Hero = () => {
   const heroBg = {
