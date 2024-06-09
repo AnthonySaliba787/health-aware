@@ -13,8 +13,13 @@ export const Hero = () => {
     <>
       <div
         style={heroBg}
-        className="w-full min-h-screen flex flex-col justify-center items-center text-center px-4 py-4"
+        className="relative w-full min-h-screen flex flex-col justify-center items-center text-center px-4 py-4"
       >
+        <div className="absolute top-0 w-full text-center mt-4">
+          <p className="text-base font-medium text-neutral-400 uppercase">
+            the global health initiative
+          </p>
+        </div>
         <TbHealthRecognition className="text-pink-700 text-5xl md:text-7xl drop-shadow-sm" />
         <h1 className="text-3xl md:text-5xl font-bold text-pink-700 drop-shadow-sm">
           Health Aware
